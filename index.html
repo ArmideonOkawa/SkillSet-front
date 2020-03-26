@@ -10,58 +10,50 @@
     <!-- <script defer type="text/javascript" src="src/test.js" defer></script> -->
 </head>
 <body>
-    <div class="container">
-     <div id="home" class="flex-center flex-column">
-      <div class="column-one">
-        <aside>
-         <div class="section" id="test-list">
-
+ <div class="container">
+ <div id="home" class="flex-center flex-column">
+   <div class="column-one">
+    <aside>
+     <div class="section" id="test-list"></div>
+    </aside>
+   </div>
+   <div class="column-two">
+     <div id="game" class="justify-center flex-column">
+      <div id="hud">
+       <div id="hud-item">
+         <p id="progressText" class="hud-prefix">Question</p>
+        <div id="progressBar">
+         <div id="progressBarFull"></div>
         </div>
-        </aside>
+       </div>
+        <div id="hud-item">
+          <p class="hud-prefix">Num Correct</p>
+          <h1 class="hud-main-text" id="score">0</h1>
+        </div>
       </div>
-      <div class="column-two">
-        <div id="game" class="justify-center flex-column">
-         <div id="hud">
-          <div id="hud-item">
-            <p id="progressText" class="hud-prefix">
-                             Question
-            </p>
-            <div id="progressBar">
-                     <div id="progressBarFull"></div>
-           </div>
-          </div>
-                     <div id="hud-item">
-                             <p class="hud-prefix">
-                                 Num Correct
-                             </p>
-                         <h1 class="hud-main-text" id="score">
-                             0
-                         </h1>
-                     </div>
-         </div>
-            <h2 id="question">What is the answer to this questions?</h2>
-             <div class="choice-container">
-                 <p class="choice-prefix">A</p>
-                 <p class="choice-text" data-number="1">Choice 1</p>
-             </div>
-              <div class="choice-container">
-                         <p class="choice-prefix">B</p>
-                         <p class="choice-text" data-number="2">Choice 2</p>
-              </div>
-               <div class="choice-container">
-                         <p class="choice-prefix">C</p>
-                         <p class="choice-text" data-number="3">Choice 3</p>
-               </div>
-               <div class="choice-container">
-                         <p class="choice-prefix">D</p>
-                         <p class="choice-text" data-number="4">Choice 4</p>
-               </div>
-        </div>
-        <div class="repeat-container">
+        <h2 id="question">What is the answer to this questions?</h2>
+      <div class="choice-container">
+        <p class="choice-prefix">A</p>
+        <p class="choice-text" data-number="1">Choice 1</p>
+      </div>
+       <div class="choice-container">
+        <p class="choice-prefix">B</p>
+        <p class="choice-text" data-number="2">Choice 2</p>
+       </div>
+       <div class="choice-container">
+         <p class="choice-prefix">C</p>
+         <p class="choice-text" data-number="3">Choice 3</p>
+       </div>
+       <div class="choice-container">
+         <p class="choice-prefix">D</p>
+         <p class="choice-text" data-number="4">Choice 4</p>
+       </div>
+     </div>
+     <div class="repeat-container">
           
-        </div>  
-         </div>
-      <div class="column-three">
+     </div>  
+   </div>
+   <div class="column-three">
             <!-- <aside>
             <div class="section" id="login-user">
                     <div id="login-form">
@@ -75,10 +67,14 @@
                                     </div>
              </div>
             </aside> -->
-        </div>
-      </div>
-     </div>
-    </div>
+   </div>
+ </div>
+ </div>
+ <div class="container-2">
+   <h2>some code</h2>
+ </div>
+    
+
 
     
 </body>
