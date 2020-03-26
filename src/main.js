@@ -1,6 +1,6 @@
 //
 const allTests =[]
-const problemUrl = 'http://localhost:3000/problems';
+const problemUrl = 'https://upyourskill.herokuapp.com/problems';
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById("progressText");
@@ -16,7 +16,7 @@ let questions = [];
 
 //
 function init(){
-return fetch(`http://localhost:3000/tests`)
+return fetch(`https://upyourskill.herokuapp.com/tests`)
   .then(res => res.json())
   .then(tests => showTests(tests))
 }
@@ -32,7 +32,7 @@ init()
     listedTests.textContent = test.name
     
     listedTests.addEventListener('click', e => {
-      fetch(`http://localhost:3000/tests` + `/{:id}`)
+      fetch(`https://upyourskill.herokuapp.com/tests` + `/{:id}`)
     })
     testBox.append(listedTests)
   }
@@ -45,7 +45,7 @@ function showProfessions(professions) {
 }
 
 // Test Js
-fetch('http://localhost:3000/problems')
+fetch('https://upyourskill.herokuapp.com/problems')
   .then(res => {
     return res.json();
   })
