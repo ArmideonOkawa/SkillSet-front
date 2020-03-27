@@ -1,7 +1,7 @@
 //
 const allTests =[]
 const problemUrl = 'https://upyourskill.herokuapp.com/problems';
-const faQues = 'https://upyourskill.herokuapp.com/tests/2/problems';
+const tests = 'https://upyourskill.herokuapp.com/tests';
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById("progressText");
@@ -13,17 +13,11 @@ let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
 
-//
-const username = document.getElementById("username");
-const saveScoreBtn = document.getElementById("saveScoreBtn");
-const finalScore = document.getElementById("finalScore");
-const mostRecentScore = localStorage.getItem("mostRecentScore");
-
 let questions = [];
 
 //
 function init(){
-return fetch(`https://upyourskill.herokuapp.com/tests`)
+return fetch(tests)
   .then(res => res.json())
   .then(tests => showTests(tests))
 }
