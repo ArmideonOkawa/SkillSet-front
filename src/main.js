@@ -1,6 +1,7 @@
 //
 const allTests =[]
 const problemUrl = 'https://upyourskill.herokuapp.com/problems';
+const faQues = 'https://upyourskill.herokuapp.com/tests/2/problems';
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const progressText = document.getElementById("progressText");
@@ -11,6 +12,12 @@ let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
+
+//
+const username = document.getElementById("username");
+const saveScoreBtn = document.getElementById("saveScoreBtn");
+const finalScore = document.getElementById("finalScore");
+const mostRecentScore = localStorage.getItem("mostRecentScore");
 
 let questions = [];
 
@@ -36,17 +43,7 @@ init()
       .then(res => res.json())
       .then(testItem => console.log(testItem))
 
-      fetch('https://upyourskill.herokuapp.com/problems')
-      .then(res => {
-       return res.json();
-    })
-      .then(loadedQuestions => {
-       questions = loadedQuestions;
-       startTest();
-    })
-      .catch(err => {
-       console.error(err);
-     });
+      devTest()
     })
     testBox.append(listedTests)
   }
@@ -61,20 +58,6 @@ function showProfessions(professions) {
 }
 
 
-
-// questions fetch
-// fetch('https://upyourskill.herokuapp.com/problems')
-//   .then(res => {
-//     return res.json();
-//   })
-//   .then(loadedQuestions => {
-//     console.log(loadedQuestions);
-//     questions = loadedQuestions;
-//     startTest();
-//   })
-//   .catch(err => {
-//     console.error(err);
-//   });
 
 //CONSTANTS
 const CORRECT_BONUS = 1;
@@ -143,3 +126,46 @@ incrementScore = num => {
 };
 
 //finish assessment
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+const MAX_HIGH_SCORES = 5;
+
+
+finalScore.innerText = mostRecentScore;
+
+username.addEventListener("keyup", () => {
+  saveScoreBtn.disabled = !username.value;
+});
+
+saveHighScore = e => {
+  console.log("clicked the save button!");
+  e.preventDefault();
+
+  const score = {
+    score: Math.floor(Math.random() * 100),
+    name: username.value
+  };
+  highScores.push(score);
+  highScores.sort((a, b) => b.score - a.score);
+  highScores.splice(5);
+
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+  window.location.assign("/");
+};
+
+
+//dev questions
+function devTest(){
+return fetch(problemUrl)
+.then(res => {
+ return res.json();
+})
+.then(loadedQuestions => {
+ questions = loadedQuestions;
+ startTest();
+})
+.catch(err => {
+ console.error(err);
+});
+}
+

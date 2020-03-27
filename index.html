@@ -10,15 +10,14 @@
     <!-- <script defer type="text/javascript" src="src/test.js" defer></script> -->
 </head>
 <body>
+    <div class="navbar">
+        <nav>
+        <ul></ul>
+        </nav>
+     </div>
  <div class="container">
  <div id="home" class="flex-center flex-column">
-   <div class="column-one">
-    <aside>
-      <nav>
-      <ul></ul>
-      </nav>
-    </aside>
-   </div>
+   
    <div class="column-two">
      <div id="game" class="justify-center flex-column">
       <div id="hud">
@@ -33,7 +32,7 @@
           <h1 class="hud-main-text" id="score">0</h1>
         </div>
       </div>
-        <h2 id="question">What is the answer to this questions?</h2>
+        <h2 id="question"></h2>
       <div class="choice-container">
         <p class="choice-prefix">A</p>
         <p class="choice-text" data-number="1">Choice 1</p>
@@ -56,24 +55,36 @@
      </div>  
    </div>
    <div class="column-three">
-            <!-- <aside>
-            <div class="section" id="login-user">
-                    <div id="login-form">
-                            <div class="ui input" id="login-form-div">
-                                    <form autocomplete="off" id="login-form" class="" action="index.html" method="post">
-                                      <input id="login-field" type="text" name="" value="" placeholder="username">
-                                      <br><br>
-                                      <input type="submit">
-                                      <br><br>
-                                    </form>
-                                    </div>
-             </div>
-            </aside> -->
+      <div id="end">
+          <h1 id="finalScore"></h1>
+          <form>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="username"
+            />
+            <button
+              type="submit"
+              class="btn"
+              id="saveScoreBtn"
+              onclick="saveHighScore(event)"
+              disabled
+            >
+              Save
+            </button>
+          </form>
+          <a class="btn">Play Again</a>
+          <a class="btn">Go Home</a>
+        </div>
    </div>
  </div>
 </div>
     
 
+<footer id="footer">
+    Created by <a href="https://github.com/ArmideonOkawa" target="_blank"> Jeremy Perry</a>© 2020
+</footer>
 
     
 </body>

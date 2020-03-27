@@ -12,6 +12,19 @@
   /* height: 100%; */
 }
 
+html, body {
+  height: 100%;
+}
+
+#footer {
+  text-align: center;
+  background-color: #FA7A5B;
+  position: relative;
+  height: 25px;
+  margin-top: -25px;
+  clear: both;
+}
+
 h1,
 h2,
 h3,
@@ -67,64 +80,50 @@ h3 {
   background-color: #ecf5ff; 
 } */
 
-.column-two {
+/* .column-two {
   margin: auto;
   width: 100%;
   padding: 30px;
   height: 100%; 
   text-align: justified;
-}
+} */
 
-/* .column-three {
+.column-three {
   float: right;
   width: 15%;
   padding: 10px;
   height: 50%; 
   top: 200px;
-} */
-
-
-
-aside{
-	background: #1ABC9C;
-	position: fixed;
-	top:0;
-	bottom:0;
-	left:0;
-	width:45px;
-	transition: all 1s;
 }
 
-aside nav ul{
-	padding-left:0;
+
+
+
+
+/*  */
+.navbar {
+  text-align: center;
+  background-color: #FA7A5B;
+}
+.navbar ul li {
+  text-align: center;
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 5px;
 }
 
-aside nav ul li{
-	display:flex;
-	align-items: center;
-	list-style-type: none;
-	padding: 10px;
-	cursor:pointer;
+.navbar li:hover {
+  background-color: #16A085;
+  color: black;
 }
 
-aside nav ul li span{
-	color:#fff;
-	padding-left:20px;
-	padding-right:20px;
-	opacity:0;
-	transition: all 1s;
-}
-
-aside:hover nav ul li span{
-	opacity: 1;
-	}
-
-aside:hover{
-	width:150px;
-}
-
-aside nav ul li:hover{
-	background-color: #16A085;
+.navbar li.active {
+  background-color: dodgerblue;
+  color: white;
 }
 
 
