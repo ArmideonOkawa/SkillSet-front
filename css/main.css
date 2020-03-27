@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
   color: #333;
+  font-family: 'Roboto', sans-serif;
   /* height: 100%; */
 }
 
@@ -58,36 +59,74 @@ h3 {
   padding: 0;
   width: 100%;
 }
-.column-one {
+/* .column-one {
   float: left;
   width: 20%;
   padding: 10px;
   height: 820px;
   background-color: #ecf5ff; 
-}
+} */
 
 .column-two {
   margin: auto;
-  width: 65%;
+  width: 100%;
   padding: 30px;
   height: 100%; 
   text-align: justified;
 }
 
-.column-three {
+/* .column-three {
   float: right;
   width: 15%;
   padding: 10px;
   height: 50%; 
   top: 200px;
+} */
+
+
+
+aside{
+	background: #1ABC9C;
+	position: fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	width:45px;
+	transition: all 1s;
 }
 
-aside .section {
-  width: 100%;
-  height: 20%;
-  border: #333;
-
+aside nav ul{
+	padding-left:0;
 }
+
+aside nav ul li{
+	display:flex;
+	align-items: center;
+	list-style-type: none;
+	padding: 10px;
+	cursor:pointer;
+}
+
+aside nav ul li span{
+	color:#fff;
+	padding-left:20px;
+	padding-right:20px;
+	opacity:0;
+	transition: all 1s;
+}
+
+aside:hover nav ul li span{
+	opacity: 1;
+	}
+
+aside:hover{
+	width:150px;
+}
+
+aside nav ul li:hover{
+	background-color: #16A085;
+}
+
 
 game {
   text-align: center;
@@ -157,7 +196,7 @@ game {
   width: 0%;
 }
 
-/* .container {
+.container {
   width: 100vw;
   height: 100%;
   display: flex;
@@ -170,12 +209,12 @@ game {
  .container > * {
   width: 100%;
   height: 100%;
-} */
+}
 
-/* .flex-column {
+.flex-column {
   display: flex;
   flex-direction: column;
-} */
+}
 
  .flex-center {
   justify-content: center;
@@ -195,7 +234,7 @@ game {
 } 
 
 /* BUTTONS */
-/* .btn {
+.btn {
   font-size: 1.8rem;
   padding: 1rem 0;
   width: 20rem;
@@ -218,5 +257,5 @@ game {
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
-} */
+}
 

@@ -24,18 +24,34 @@ return fetch(`https://upyourskill.herokuapp.com/tests`)
 init()
 
 
+
   function renderTest(test) {
-    const testBox = document.querySelector("#test-list")
+    const testBox = document.querySelector("ul")
     const listedTests = document.createElement("li")
-    listedTests.className = "test"
-    listedTests.dataset = test.id
-    listedTests.textContent = test.name
-    
-    listedTests.addEventListener('click', e => {
-      fetch(`https://upyourskill.herokuapp.com/tests` + `/{:id}`)
+    listedTests.className = "name"
+    listedTests.dataset.id = test.id
+    listedTests.innerHTML = `<span>${test.name}</span>`
+    listedTests.addEventListener('click', e =>{
+      fetch(`https://upyourskill.herokuapp.com/tests/${test.id}/problems`)
+      .then(res => res.json())
+      .then(testItem => console.log(testItem))
+
+      fetch('https://upyourskill.herokuapp.com/problems')
+      .then(res => {
+       return res.json();
+    })
+      .then(loadedQuestions => {
+       questions = loadedQuestions;
+       startTest();
+    })
+      .catch(err => {
+       console.error(err);
+     });
     })
     testBox.append(listedTests)
   }
+
+
 function showTests(tests) {
     tests.forEach((test) => renderTest(test))
 }
@@ -44,19 +60,21 @@ function showProfessions(professions) {
     professions.forEach(profession => proContainer(profession))
 }
 
-// Test Js
-fetch('https://upyourskill.herokuapp.com/problems')
-  .then(res => {
-    return res.json();
-  })
-  .then(loadedQuestions => {
-    console.log(loadedQuestions);
-    questions = loadedQuestions;
-    startTest();
-  })
-  .catch(err => {
-    console.error(err);
-  });
+
+
+// questions fetch
+// fetch('https://upyourskill.herokuapp.com/problems')
+//   .then(res => {
+//     return res.json();
+//   })
+//   .then(loadedQuestions => {
+//     console.log(loadedQuestions);
+//     questions = loadedQuestions;
+//     startTest();
+//   })
+//   .catch(err => {
+//     console.error(err);
+//   });
 
 //CONSTANTS
 const CORRECT_BONUS = 1;
@@ -69,6 +87,7 @@ startTest = () => {
   getNewQuestion();
 };
 
+// cycle through questions
 getNewQuestion = () => {
   if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     //action after questions are completed
@@ -92,6 +111,8 @@ getNewQuestion = () => {
   acceptingAnswers = true;
 };
 
+
+//check if question is right or wrong
 choices.forEach(choice => {
   choice.addEventListener("click", e => {
     if (!acceptingAnswers) return;
