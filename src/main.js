@@ -76,7 +76,7 @@ startTest = () => {
 getNewQuestion = () => {
   if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     //action after questions are completed
-    if(!alert('Thank you for tyring out my app! More features coming soon!')){window.location.reload();}
+    if(!alert('Thank you for tyring out my app! More features coming soon!')){window.location.reload();
   }
   questionCounter++;
   progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
