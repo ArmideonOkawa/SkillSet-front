@@ -76,7 +76,7 @@ startTest = () => {
 getNewQuestion = () => {
   if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     //action after questions are completed
-    if(!alert('Thank you for tyring out my app! More features coming soon!')){window.location.reload();
+    if(!alert('Thank you for tyring out my app! More features coming soon!')){window.location.reload();}
   }
   questionCounter++;
   progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
@@ -131,17 +131,17 @@ incrementScore = num => {
 
 
 //dev questions
-function devTest(){
-return fetch(`https://upyourskill.herokuapp.com/tests/${test.id}/problems`)
-.then(res => {
- return res.json();
-})
-.then(loadedQuestions => {
- questions = loadedQuestions;
- startTest();
-})
-.catch(err => {
- console.error(err);
-});
-}
-}
+// function devTest(){
+// return fetch(`https://upyourskill.herokuapp.com/tests/${test.id}/problems`)
+// .then(res => {
+//  return res.json();
+// })
+// .then(loadedQuestions => {
+//  questions = loadedQuestions;
+//  startTest();
+// })
+// .catch(err => {
+//  console.error(err);
+// });
+// }
+// }
