@@ -15,6 +15,9 @@
         <ul></ul>
         </nav>
      </div>
+     <div class="instructions">    
+    <h3>Select a test from above & Answer the questions as they pop up below</h3>   
+    </div>
  <div class="container">
  <div id="home" class="flex-center flex-column">
    
@@ -34,19 +37,19 @@
       </div>
         <h2 id="question"></h2>
       <div class="choice-container">
-        <p class="choice-prefix">A</p>
+        <!-- <p class="choice-prefix">A</p> -->
         <p class="choice-text" data-number="1">Choice 1</p>
       </div>
        <div class="choice-container">
-        <p class="choice-prefix">B</p>
+        <!-- <p class="choice-prefix">B</p> -->
         <p class="choice-text" data-number="2">Choice 2</p>
        </div>
        <div class="choice-container">
-         <p class="choice-prefix">C</p>
+         <!-- <p class="choice-prefix">C</p> -->
          <p class="choice-text" data-number="3">Choice 3</p>
        </div>
        <div class="choice-container">
-         <p class="choice-prefix">D</p>
+         <!-- <p class="choice-prefix">D</p> -->
          <p class="choice-text" data-number="4">Choice 4</p>
        </div>
      </div>  
@@ -54,7 +57,26 @@
    
  </div>
 </div>
-    
+<div id="modal" style="display: none;" data-action="close">
+  <h1 id="finalScore"></h1>
+  <form>
+    <input
+      type="text"
+      name="username"
+      id="username"
+      placeholder="username"
+    />
+    <button
+      type="submit"
+      class="btn"
+      id="saveScoreBtn"
+      onclick="saveHighScore(event)"
+      disabled
+    >
+      Save
+    </button>
+  </form>
+</div>
 
 <footer id="footer">
     Created by <a href="https://github.com/ArmideonOkawa" target="_blank"> Jeremy Perry</a>© 2020

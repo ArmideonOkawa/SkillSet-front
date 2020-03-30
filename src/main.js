@@ -15,6 +15,8 @@ let availableQuesions = [];
 
 let questions = [];
 
+
+
 //
 function init(){
 return fetch(tests)
@@ -33,11 +35,17 @@ init()
     listedTests.dataset.id = test.id
     listedTests.innerHTML = `<span>${test.name}</span>`
     listedTests.addEventListener('click', e =>{
-      // fetch(`https://upyourskill.herokuapp.com/tests/${test.id}/problems`)
-      // .then(res => res.json())
-      // .then(testItem => console.log(testItem))
-
-      devTest()
+      fetch(`https://upyourskill.herokuapp.com/tests/${test.id}/problems`)
+      .then(res => {
+        return res.json();
+      })
+      .then(loadedQuestions => {
+      questions = loadedQuestions;
+      startTest();
+      })
+        .catch(err => {
+        console.error(err);
+        });
     })
     testBox.append(listedTests)
   }
@@ -88,7 +96,6 @@ getNewQuestion = () => {
   acceptingAnswers = true;
 };
 
-
 //check if question is right or wrong
 choices.forEach(choice => {
   choice.addEventListener("click", e => {
@@ -125,7 +132,7 @@ incrementScore = num => {
 
 //dev questions
 function devTest(){
-return fetch(problemUrl)
+return fetch(`https://upyourskill.herokuapp.com/tests/${test.id}/problems`)
 .then(res => {
  return res.json();
 })
